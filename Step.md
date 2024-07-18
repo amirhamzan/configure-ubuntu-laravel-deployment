@@ -7,6 +7,7 @@
 2. Install Nginx, PHP, and MySQL:
    ```
     sudo apt install nginx mysql-server php-fpm php-mysql php-xml php-mbstring php-curl php-zip unzip -y
+    sudo apt install php8.3-{cli,pdo,mysql,zip,gd,mbstring,curl,xml,bcmath,common}
    ```
 3. Configure MySQL, secure your MySQL installation and create a database for your Laravel application:
    ```
@@ -20,6 +21,7 @@
     CREATE USER '<laravel_user>'@'<host>' IDENTIFIED BY '<your_password>';
     GRANT ALL PRIVILEGES ON <laravel_db>.* TO '<laravel_user>'@'<host>';
     FLUSH PRIVILEGES;
+    // GRANT ALL ON `amirhamzan_site`.* TO 'amirhamzan_user'@'localhost';
    ```
    ```
     # Verify user and host created
@@ -64,4 +66,9 @@
     cd /var/www
     sudo git clone https://github.com/amirhamzan/real-estate-site.git amirhamzan.site
     cd amirhamzan.site
+    cp .env.example .env
+    composer install
+    php artisan key:generate
+    <next_step_configure_laravel_app ...>
    ```
+6. 
