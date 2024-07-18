@@ -33,24 +33,6 @@
     UPDATE mysql.db SET Host='<new_host>' WHERE Host='<old_host>' AND User='<user>';
     FLUSH PRIVILEGES;
    ```
-   ```
-    ##################### TO CHECK AGAIN #####################
-    # To activate ufw (Uncomplicated Firewall)
-    sudo ufw enable
-    # Allows incoming connections on port 3306(MySQL)
-    sudo ufw allow 3306
-    # Check ufw status
-    sudo ufw status
-   ```
-   Ensure MySQL is configured to listen on all IP addresses
-   ```
-    # Edit the MySQL configuration file (/etc/mysql/mysql.conf.d/mysqld.cnf or /etc/my.cnf):
-    sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
-   ```
-   Look for the bind-address directive and set it to 0.0.0.0 or 194.238.23.69:
-   ```
-    bind-address = 0.0.0.0
-   ```
    Save the file and restart MySQL:
    ```
     sudo systemctl restart mysql
@@ -71,4 +53,27 @@
     php artisan key:generate
     <next_step_configure_laravel_app ...>
    ```
-6. 
+6. Configure NGINX
+7. Configure DNS - set A and CNAME to point to server
+8. Enable HTTPS using certbot
+9. Install, configure phpmyadmin
+
+---
+   ```
+    ##################### TO CHECK AGAIN #####################
+    # To activate ufw (Uncomplicated Firewall)
+    sudo ufw enable
+    # Allows incoming connections on port 3306(MySQL)
+    sudo ufw allow 3306
+    # Check ufw status
+    sudo ufw status
+   ```
+   Ensure MySQL is configured to listen on all IP addresses
+   ```
+    # Edit the MySQL configuration file (/etc/mysql/mysql.conf.d/mysqld.cnf or /etc/my.cnf):
+    sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+   ```
+   Look for the bind-address directive and set it to 0.0.0.0 or 194.238.23.69:
+   ```
+    bind-address = 0.0.0.0
+   ```
